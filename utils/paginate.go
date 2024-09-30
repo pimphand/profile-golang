@@ -8,7 +8,7 @@ import (
 
 func CreatePageLinks(ctx *gin.Context, currentPage, lastPage int) []gin.H {
 	var links []gin.H
-	path := ctx.Request.URL.Path // Mengambil path dari request
+	path := "https://api-go.naisha.id" + ctx.Request.URL.Path // Mengambil path dari request
 
 	// Link ke halaman sebelumnya
 	if currentPage > 1 {
