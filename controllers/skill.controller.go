@@ -6,9 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetEducation(ctx *gin.Context) {
-	var education []responses.Education
-	err := database.DB.Table("educations").Find(&education).Error
+func GetSkill(ctx *gin.Context) {
+	var skill []responses.Skill
+	err := database.DB.Table("skills").Find(&skill).Error
 	if err != nil {
 		ctx.JSON(404, gin.H{
 			"data": "Data not found",
@@ -16,17 +16,17 @@ func GetEducation(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(200, gin.H{
-		"data": education,
+		"data": skill,
 	})
 }
 
-func CreateEducation(ctx *gin.Context) {
-	var education responses.Education
-	err := ctx.BindJSON(&education)
+func CreateSkill(ctx *gin.Context) {
+	var skill responses.Skill
+	err := ctx.BindJSON(&skill)
 	if err != nil {
 		return
 	}
-	err1 := database.DB.Table("educations").Create(&education).Error
+	err1 := database.DB.Table("skills").Create(&skill).Error
 	if err1 != nil {
 		ctx.JSON(500, gin.H{
 			"data": "Failed to create data",
@@ -34,17 +34,17 @@ func CreateEducation(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(200, gin.H{
-		"data": education,
+		"data": skill,
 	})
 }
 
-func UpdateEducation(ctx *gin.Context) {
-	var education responses.Education
-	err := ctx.BindJSON(&education)
+func UpdateSkill(ctx *gin.Context) {
+	var skill responses.Skill
+	err := ctx.BindJSON(&skill)
 	if err != nil {
 		return
 	}
-	err1 := database.DB.Table("educations").Save(&education).Error
+	err1 := database.DB.Table("skills").Save(&skill).Error
 	if err1 != nil {
 		ctx.JSON(500, gin.H{
 			"data": "Failed to update data",
@@ -52,20 +52,20 @@ func UpdateEducation(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(200, gin.H{
-		"data": education,
+		"data": skill,
 	})
 }
 
-func DeleteEducation(ctx *gin.Context) {
-	var education responses.Education
-	err := database.DB.Table("educations").First(&education).Error
+func DeleteSkill(ctx *gin.Context) {
+	var skill responses.Skill
+	err := database.DB.Table("skills").First(&skill).Error
 	if err != nil {
 		ctx.JSON(404, gin.H{
 			"data": "Data not found",
 		})
 		return
 	}
-	err1 := database.DB.Table("educations").Delete(&education).Error
+	err1 := database.DB.Table("skills").Delete(&skill).Error
 	if err1 != nil {
 		ctx.JSON(500, gin.H{
 			"data": "Failed to delete data",
@@ -73,6 +73,6 @@ func DeleteEducation(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(200, gin.H{
-		"data": education,
+		"data": skill,
 	})
 }

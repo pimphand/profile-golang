@@ -1,5 +1,106 @@
 ### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=GoLand
+GET http://localhost:8090/profile/create
 
 ###
+//create post request
+POST http://localhost:8090/profile/create
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "faisaldwiki@gmail.com",
+  "phone":"08123456789",
+  "address": "Jl. Jendral Sudirman No. 1",
+  "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+}
+
+###
+//education
+GET http://localhost:8090/educations
+###
+//creat#e post request
+POST http://localhost:8090/educations
+Content-Type: application/json
+
+{
+  "degree": "S1",
+  "school": "Universitas Indonesia",
+  "departement": "Teknik Informatika",
+  "start_year": "2016",
+  "end_year": "2020",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+}
+
+###
+//experience
+GET http://localhost:8090/experiences
+###
+//create post request
+POST http://localhost:8090/experiences
+Content-Type: application/json
+
+{
+  "title": "Software Engineer",
+  "company": "PT. ABC",
+  "location": "Jakarta",
+  "start_date": "2020-01-01",
+  "end_date": "2020-12-31",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+}
+
+###
+//update experience
+PUT http://localhost:8090/experiences
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Laravel",
+  "company": "PT. ABC",
+  "location": "Jakarta",
+  "start_date": "2020-01-01",
+  "end_date": "2020-12-31",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+}
+
+###
+//delete experience
+DELETE http://localhost:8090/experiences
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+//project
+GET http://localhost:8090/projects
+
+###
+//create project
+POST http://localhost:8090/projects
+Content-Type: application/json
+
+{
+  "name": "Project A",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  "url": "https://google.com",
+  "status": "On Progress",
+  "tags": ["Laravel", "VueJS"],
+  "image":"image.jpg"
+}
+
+###
+//skill
+GET http://localhost:8090/skills
+
+###
+//create skill
+POST http://localhost:8090/skills
+Content-Type: application/json
+
+{
+  "name": "Laravel",
+  "level": 90,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+}
